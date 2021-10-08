@@ -35,3 +35,9 @@ ALTER TABLE productos
     ADD PRIMARY KEY (id);
     ALTER TABLE productos
     ADD registro DATETIME;
+
+    ALTER TABLE productos MODIFY id INTEGER NOT NULL AUTO_INCREMENT;
+
+DESCRIBE users;
+
+ALTER TABlE users

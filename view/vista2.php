@@ -1,14 +1,13 @@
 <?php
-session_start();
-require_once('../models/consultas.php');
+ session_start();
+ require_once("../models/consultas.php");
 
-$consulta = new consultas();
+    $consulta = new consultas();
 
-$getproductos = $consulta->Getproductos();
+    $getproductos = $consulta->Getproductos();
 
 
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -42,12 +41,12 @@ $getproductos = $consulta->Getproductos();
         <tbody>
             <?php
             while ($datos=$getproductos->fetch()) {
-                $nombre=$datos['nombre'];
-                $descripcion=$datos['descripcion'];
-                $precio=$datos['precio'];
-                $cantidad=$datos['cantidad'];
-                $registro=$datos['registro'];
-
+                $nombre=$datos ['nombre'];
+                $descripcion=$datos ['descripcion'];
+                $precio=$datos ['precio'];
+                $cantidad=$datos ['cantidad'];
+                $registro=$datos ['registro'];
+            
             ?>
             <tr>
             <th scope="row"><?php echo $nombre?></th>
@@ -57,9 +56,9 @@ $getproductos = $consulta->Getproductos();
             <td><?php echo $registro?></td>
             </tr>
             
-            <?php
+           <?php
             }
-            ?>
+           ?>
         
         </tbody>
         </table>
