@@ -1,5 +1,6 @@
 <?php
-session_start();
+
+
 require_once('../models/consultas.php');
 
 $consulta = new consultas();
@@ -19,6 +20,8 @@ $getproductos = $consulta->Getproductos();
     <?php  require_once 'complementos.php'; ?>
     <link rel="stylesheet" href="../assets/css/generales.css">
     <link rel="stylesheet" href="../assets/css/inicio.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../assets/js/redirect.js"></script>
 </head>
 <body>
@@ -37,11 +40,13 @@ $getproductos = $consulta->Getproductos();
             <th scope="col">Precio</th>
             <th scope="col">Cantidad</th>
             <th scope="col">Registro</th>
+            <th scope="col">Delete</th>
             </tr>
         </thead>
         <tbody>
             <?php
             while ($datos=$getproductos->fetch()) {
+                $id=$datos['id'];
                 $nombre=$datos['nombre'];
                 $descripcion=$datos['descripcion'];
                 $precio=$datos['precio'];
@@ -55,6 +60,19 @@ $getproductos = $consulta->Getproductos();
             <td><?php echo $precio?></td>
             <td><?php echo $cantidad?></td>
             <td><?php echo $registro?></td>
+            <td>
+
+               
+                    <form action="update_productos.php" method="post" style="display: inline-block;">
+                        <input type="hidden" name="id" id="id" value="<?php echo $id; ?>">
+
+                        <button > Editar </button>
+                    </form>
+                    <button type= "Button" onclick="btneliminar()"> eliminar </button>
+               
+
+            </td>
+
             </tr>
             
             <?php
@@ -65,6 +83,6 @@ $getproductos = $consulta->Getproductos();
         </table>
 
     </div>
-    
+    <script src="../assets/js/eliminar_productos.js"></script>
 </body>
 </html>

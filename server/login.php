@@ -22,7 +22,7 @@ require_once('../config/conexion.php');
                     $_SESSION['id'] = $getRow['id'];
                     $_SESSION['correo'] = $getRow['email'];
           
-                    header('location: ../view/index.php');
+                    header('location: ../view/dashboard.php');
                     exit();
                 } else {
                     $errors[] = "Contraseña o Correo invalidos";

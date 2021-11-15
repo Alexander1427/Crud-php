@@ -12,5 +12,5 @@ $precio=$_POST['precio'];
  $insertproductos = $insert->Insertproductos($nombre,$descripcion,$precio,$cantidad);
 
  if ($insertproductos) {
-     header("location: ../view/index.php");
+     header("location: ../view/producto.php");
  }

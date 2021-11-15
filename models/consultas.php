@@ -10,6 +10,15 @@
             $Sql="SELECT * FROM productos";
             return ejecutarConsulta($Sql);
         }
+   
+        
+        public function Consulta_productos_id($id)
+        {
+            $Sql="SELECT * FROM productos WHERE id='$id'";
+            return ejecutarConsulta($Sql);
+        }
+   
+   
     }
 
-?>
+?> 

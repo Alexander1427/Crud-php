@@ -1,14 +1,20 @@
 <?php
 
     require_once('../config/conexion.php');
-    if (isset($_POST['nombre'],$_POST['email'],$_POST['password'],) 
-    && !empty($_POST['nombre'])  && !empty($_POST['email'])
+
+
+
+
+    if (isset($_POST['nombre'],$_POST['email'],$_POST['empresa'],$_POST['telefono'],$_POST['password']) 
+    && !empty($_POST['nombre'])  && !empty($_POST['email'] && !empty($_POST['empresa']) && !empty($_POST['telefono'])) 
      && !empty($_POST['password'])) {
         $nombre = trim($_POST['nombre']);
         $email = trim($_POST['email']);
+        $empresa = trim($_POST['empresa']);
+        $telefono = trim($_POST['telefono']);
         $password = trim($_POST['password']);
 
-
+       
         $options = array("cost"=>4);
         $hashPassword = password_hash($password, PASSWORD_BCRYPT, $options);
         $date = date('Y-m-d H:i:s');
@@ -19,28 +25,34 @@
             $p = ['email'=>$email];
             $stmt->execute($p);
             if ($stmt->rowCount() == 0) {
-                $sql = "insert into users (nombre, email, `password`, registro) values(:nombre,:email,:pass,:registro)";
+                
+                $sql = "insert into users (nombre, email, empresa, telefono, `password`, registro) values(:nombre,:email,:empresa,:telefono,:pass,:registro)";
                 try {
                     $handle = $conexion->prepare($sql);
                     $params = [
                         ':nombre'=>$nombre,
                         ':email'=>$email,
+                        ':empresa'=>$empresa,
+                        ':telefono'=>$telefono,
                         ':pass'=>$hashPassword,
                         ':registro'=>$date
 
                     ];
 
                     $handle->execute($params);
-
+                    echo 'aqu i';
                    
                     
-                    // echo '<div class="alert success" id="alerta"><span class="closebtn" onclick="quitar_alerta();">&times;</span> <strong>¡Éxito!</strong> Usuario creado, por favor inicia sesión con tus credenciales</div>';
+                    
                 } catch (PDOException $e) {
                     $errors[] = $e->getMessage();
                 }
+               
             } else {
                 $valnombre = $nombre;
                 $valEmail = '';
+                $valempresa = $empresa;
+                $valtelefono = $telefono;
                 $valPassword = $password;
 
 
@@ -62,6 +74,16 @@
         } else {
             $valEmail = $_POST['email'];
         }
+        if (!isset($_POST['empresa']) || empty($_POST['empresa'])) {
+            echo 'La empresa es requerida';
+         } else {
+             $valempresa = $_POST['empresa'];
+         }
+         if (!isset($_POST['telefono']) || empty($_POST['telefono'])) {
+            echo 'El telefono es requerido';
+         } else {
+             $valtelefono = $_POST['telefono'];
+         }
 
         if (!isset($_POST['password']) || empty($_POST['password'])) {
            echo 'La contraseña es requerida';
