@@ -29,7 +29,7 @@
 							<span class="nav-text">Clientes</span>
 						</a>
                         <ul aria-expanded="false">
-                            <li><a href="./chart-flot.html">Ver clientes</a></li>
+                            <li><a href="clientes-de.php">Ver clientes</a></li>
                          
                         </ul>
                     </li>

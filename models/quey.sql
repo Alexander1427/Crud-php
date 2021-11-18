@@ -40,4 +40,15 @@ ALTER TABLE productos
 
 DESCRIBE users;
 
+CREATE TABLE clientes(
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    nombre VARCHAR(60) NOT NULL,
+    empresa VARCHAR(60) NOT NULL,
+    correo VARCHAR(60) NOT NULL,
+    telefono INT(20) NOT NULL,
+     PRIMARY KEY (id)
+);
+
 ALTER TABlE users
+
+

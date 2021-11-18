@@ -1,3 +1,16 @@
+<?php
+
+
+require_once('../models/consulta_clientes.php');
+
+$consulta = new consulta();
+
+$getclientes = $consulta->Getclientes();
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +18,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Owlio - School Admission Admin Dashboard </title>
+    <?php  require_once 'complementos.php'; ?>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
 	<link rel="stylesheet" href="../assets/vendor/chartist/css/chartist.min.css">
@@ -96,6 +110,50 @@
         ***********************************-->
         <div class="content-body">
 			<div class="container-fluid">
+
+            <br>
+    <div class="container">
+        
+        <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Empresa</th>
+            <th scope="col">Correo</th>
+            <th scope="col">telefono</th>
+           
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+
+            while ($datos=$getclientes->fetch()) {
+                $id=$datos['id'];
+                $nombre=$datos['nombre'];
+                $empresa=$datos['empresa'];
+                $correo=$datos['correo'];
+                $telefono=$datos['telefono'];
+                
+
+            ?>
+            <tr>
+            <th scope="row"><?php echo $nombre?></th>
+            <td><?php echo $empresa?></td>
+            <td><?php echo $correo?></td>
+            <td><?php echo $telefono?></td>
+            
+            
+
+            </tr>
+            
+            <?php
+            }
+            ?>
+        
+        </tbody>
+        </table>
+
+    </div>
 			
 				
 			</div>	
