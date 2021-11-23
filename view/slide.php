@@ -30,6 +30,7 @@
 						</a>
                         <ul aria-expanded="false">
                             <li><a href="clientes-de.php">Ver clientes</a></li>
+                            <li><a href="agregar-cliente.php"> Agregar clientes </a></li>
                          
                         </ul>
                     </li>

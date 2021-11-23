@@ -6,7 +6,7 @@ require_once"../config/conexion.php";
         }
         public function Insertclientes($nombre, $empresa, $correo, $telefono)
         {
-            $Sql="insert into clientes (nombre, empresa, correo, telefono) values('$nombre', '$empresa', '$correo', '$telefono')";
+            $Sql="insert into clientes (nombre, empresa, correo, telefono) values('$nombre', '$empresa', '$telefono', '$correo')";
             return ejecutarConsulta($Sql);
         }
     }

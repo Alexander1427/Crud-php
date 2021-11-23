@@ -1,5 +1,5 @@
 <?php
- require_once('../models/insert.php');
+ require_once('../models/insertclientes.php');
 
  $insert = new insert();
 
@@ -9,8 +9,8 @@ $correo=$_POST['correo'];
 $telefono=$_POST['telefono'];
 
 
- $insertclientess = $insert->Insertproductos($nombre,$empresa,$telefono,$correo);
+ $insertclientess = $insert->Insertclientes($nombre,$empresa,$telefono,$correo);
 
- if ($insertproductos) {
-     header("location: ../view/clientes.php");
+ if ($insertclientess) {
+     header("location: ../view/clientes-de.php");
  }
