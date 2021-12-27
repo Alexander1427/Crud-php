@@ -13,5 +13,5 @@ $precio=$_POST['precio'];
  $updateproductos = $update->Updateproducto($id, $nombre,$descripcion,$precio,$cantidad);
 
  if ($updateproductos) {
-     header("location: ../view/index.php");
+     header("location: ../view/producto.php");
  }

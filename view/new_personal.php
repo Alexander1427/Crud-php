@@ -1,15 +1,8 @@
-<?php require "session.php"?>
 <?php
-
-
-require_once('../models/consultas.php');
-
-$consulta = new consultas();
-
-$getproductos = $consulta->Getproductos();
-
+ session_start();
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +11,7 @@ $getproductos = $consulta->Getproductos();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Owlio - School Admission Admin Dashboard </title>
-    <?php  require_once 'complementos.php'; ?>
+    <?php require_once 'complementos.php'?>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
 	<link rel="stylesheet" href="../assets/vendor/chartist/css/chartist.min.css">
@@ -51,7 +44,7 @@ $getproductos = $consulta->Getproductos();
             Nav header start
         ***********************************-->
         <div class="nav-header">
-            <a href="dashboard.html" class="brand-logo">
+            <a href="dashboard.php" class="brand-logo">
                 <svg class="logo-abbr" width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<rect class="svg-logo-rect"  width="54" height="54" rx="27" fill="url(#paint0_linear)"/>
 					<path  d="M23.7487 23.6736C23.7487 25.0896 22.5961 26.2416 21.1793 26.2416C19.764 26.2416 18.6124 25.0896 18.6124 23.6736C18.6124 22.2567 19.764 21.1041 21.1793 21.1041C22.5961 21.1041 23.7487 22.2567 23.7487 23.6736ZM32.8168 21.1042C31.4015 21.1042 30.2499 22.2569 30.2499 23.6737C30.2499 25.0897 31.4015 26.2417 32.8168 26.2417C34.2336 26.2417 35.3862 25.0897 35.3862 23.6737C35.3862 22.2569 34.2336 21.1042 32.8168 21.1042ZM26.0079 36.8042L26.0286 42.6348C24.5259 42.6975 23.4593 42.5364 23.4593 42.5364V36.8055C23.4593 36.2557 23.013 35.8094 22.4632 35.8094C21.9133 35.8094 21.4671 36.2557 21.4671 36.8055V42.0574C18.1887 40.9111 15.8626 38.1857 15.852 35.0374V27.7139C14.9984 26.5905 14.491 25.1903 14.491 23.6736C14.491 22.3807 14.8599 21.1726 15.4973 20.1483L15.4931 12.3799C15.6563 11.1516 16.7925 11.3617 16.7925 11.3617L23.1379 13.9239C24.3426 13.4452 25.6554 13.1819 27.0287 13.1819C28.3907 13.1819 29.6932 13.4411 30.8898 13.9127L37.2075 11.3617C37.2075 11.3617 38.3438 11.1516 38.5069 12.3799L38.5028 20.1486C39.1402 21.1729 39.5091 22.3809 39.5091 23.6736C39.5091 25.1893 39.0022 26.5886 38.1495 27.7117V35.1389C38.155 36.9361 37.4102 38.6757 36.0524 40.0375C36.0524 40.0375 34.7582 41.4527 32.533 42.1947V36.8055C32.533 36.2557 32.0874 35.8094 31.5369 35.8094C30.9871 35.8094 30.5408 36.2557 30.5408 36.8055V42.605C29.8565 42.6794 28.0202 42.6348 28.0202 42.6348L28.0001 36.8068C28.0008 36.257 27.5552 35.8101 27.0054 35.8094C27.0053 35.8094 26.1004 35.8061 26.0079 36.8042ZM25.8788 23.6736C25.8788 21.0829 23.7706 18.9752 21.1793 18.9752C18.5898 18.9752 16.4831 21.0829 16.4831 23.6736C16.4831 26.2642 18.5898 28.3719 21.1793 28.3719C23.7706 28.3719 25.8788 26.2642 25.8788 23.6736ZM27.8489 32.902L30.6503 30.0032C29.097 29.4697 27.8002 28.3799 26.999 26.9729C26.207 28.364 24.9304 29.4448 23.4006 29.9846L26.5748 32.9355C26.5748 32.9355 27.1871 33.4418 27.8489 32.902ZM37.5169 23.6736C37.5169 21.0829 35.4097 18.9752 32.8196 18.9752C30.2278 18.9752 28.1192 21.0829 28.1192 23.6736C28.1192 26.2642 30.2278 28.3719 32.8196 28.3719C35.4097 28.3719 37.5169 26.2642 37.5169 23.6736Z" fill="white"/>
@@ -110,65 +103,43 @@ $getproductos = $consulta->Getproductos();
         ***********************************-->
         <div class="content-body">
 			<div class="container-fluid">
-			<div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4 class="card-title">Exam Toppers</h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-responsive-md">
-                                     
-                                                <th><strong>NOMBRE</strong></th>
-                                                <th><strong>DESCRIPCION</strong></th>
-                                                <th><strong>PRECIO</strong></th>
-                                                <th><strong>CANTIDAD</strong></th>
-                                                <th><strong>REGISTRO</strong></th>
-												<th></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        <?php
-            while ($datos=$getproductos->fetch()) {
-                $id=$datos['id'];
-                $nombre=$datos['nombre'];
-                $descripcion=$datos['descripcion'];
-                $precio=$datos['precio'];
-                $cantidad=$datos['cantidad'];
-                $registro=$datos['registro'];
 
-            ?>
-            <tr>
-            <th scope="row"><?php echo $nombre?></th>
-            <td><?php echo $descripcion?></td>
-            <td><?php echo $precio?></td>
-            <td><?php echo $cantidad?></td>
-            <td><?php echo $registro?></td>
-            <td>
-
-               
-                    <form action="new_update.php" method="post" style="display: inline-block;">
-                        <input type="hidden" name="id" id="id" value="<?php echo $id; ?>">
-
-                        <button> <a  class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a> </button>
-                    </form>
-                    <button type= "Button" onclick="btneliminar()"> <a  class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a></button>
-                   
-               
-
-            </td>
-
-            </tr>
             
-            <?php
-            }
-            ?>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <form action="../server/personal.php" method="post">
+        <div class="container">
+    <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" name="nombre" id="nombre" aria-describedby="emailHelp" required>
+    
+    </div>
+    <div class="mb-3">
+        <label for="descripcion" class="form-label">email</label>
+        <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" required>
+  
+    </div>
+    <div class="mb-3">
+        <label for="precio" class="form-label">empresa</label>
+        <input type="text" class="form-control" name="empresa" id="empresa" aria-describedby="emailHelp" required>
+  
+    </div>
+    <div class="mb-3">
+        <label for="cantidad" class="form-label">telefono</label>
+        <input type="number" class="form-control" name="telefono" id="telefono" aria-describedby="emailHelp" required>
+  
+    </div>
+
+    <div class="mb-3">
+        <label for="cantidad" class="form-label">password</label>
+        <input type="password" class="form-control" name="password" id="password" aria-describedby="emailHelp" required>
+  
+    </div>
+    
+    <button type="submit"  class="btn btn-primary">Agregar</button>
+    </div>
+
+    <div class="pen-footer"><a href="https://www.behance.net/gallery/30478397/Login-Form-UI-Library" target="_blank"><i class="material-icons">arrow_backward</i>View on Behance</a><a href="https://github.com/andyhqtran/UI-Library/tree/master/Login%20Form" target="_blank">View on Github<i class="material-icons">arrow_forward</i></a></div>
+    </form>
+			
 				
 			</div>	
         </div>

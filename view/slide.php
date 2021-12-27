@@ -6,8 +6,8 @@
 							<span class="nav-text">Personal</span>
 						</a>
                         <ul aria-expanded="false">
-							<li><a href="index.html">Ver Personal</a></li>
-							<li><a href="student.html">Editar Personal</a></li>
+							<li><a href="person.php">Ver Personal</a></li>
+							<li><a href="new_personal.php">Agregar Personal</a></li>
                             <li><a href="student.html"> Cargos de Personal</a></li>
 						
 						</ul>
