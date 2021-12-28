@@ -36,10 +36,12 @@
                     </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
 							<i class="flaticon-086-star"></i>
-							<span class="nav-text">Cardex</span>
+							<span class="nav-text">Ventas</span>
 						</a>
                         <ul aria-expanded="false">
-                        
+                        <li><a href="ventas-vista.php">Ver ventas</a></li>
+                            <li><a href="agregar-cliente.php"> Nueva venta </a></li>
+                         
 
                         </ul>
                     </li>
