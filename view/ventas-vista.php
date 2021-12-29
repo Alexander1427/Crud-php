@@ -1,9 +1,9 @@
 <?php
 
 
-require_once('../models/consulta_venta.php');
+require_once('../models/consultas.php');
 
-$consulta = new consulta();
+$consulta = new consultas();
 
 $consulta_vent = $consulta->Consulta_vent();
 

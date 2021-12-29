@@ -154,11 +154,7 @@ $getproductos = $consulta->Getproductos();
                     </form>
 
                     
-                    <form action="ventas.php" method="post" style="display: inline-block;">
-                        <input type="hidden" name="id" id="id" value="<?php echo $id; ?>">
-
-                        <button> <a  class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a> </button>
-                    </form>
+                    
                     <button type= "Button" onclick="btneliminar()"> <a  class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a></button>
                    
                

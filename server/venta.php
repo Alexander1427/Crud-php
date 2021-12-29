@@ -1,5 +1,5 @@
 <?php
- require_once('../models/add_venta.php');
+ require_once('../models/insert.php');
 
  $insert = new insert();
 
@@ -15,5 +15,5 @@ $total=$_POST['total'];
  $insertventa = $insert->Insertventas($nombre,$producto,$cantidad,$precio,$total);
 
  if ($insertventa) {
-     header("location: ../view/producto.php");
+     header("location: ../view/ventas-vista.php");
  }

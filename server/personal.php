@@ -1,5 +1,5 @@
 <?php
- require_once('../models/insertpersonal.php');
+ require_once('../models/insert.php');
 
  $insert = new insert();
 

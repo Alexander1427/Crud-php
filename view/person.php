@@ -1,9 +1,9 @@
 <?php
 
 
-require_once('../models/consulta_pers.php');
+require_once('../models/consultas.php');
 
-$consulta = new consulta();
+$consulta = new consultas();
 
 $getpersonal = $consulta->Getpersonal();
 
@@ -146,7 +146,7 @@ $getpersonal = $consulta->Getpersonal();
             <td>
 
                
-                    <form action="update_productos.php" method="post" style="display: inline-block;">
+                    <form action="" method="post" style="display: inline-block;">
                         <input type="hidden" name="id" id="id" value="<?php echo $id; ?>">
 
                         <button > Editar </button>

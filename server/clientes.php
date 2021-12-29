@@ -1,5 +1,5 @@
 <?php
- require_once('../models/insertclientes.php');
+ require_once('../models/insert.php');
 
  $insert = new insert();
 
