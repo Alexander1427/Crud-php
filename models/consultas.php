@@ -28,8 +28,22 @@
             $Sql="SELECT * FROM users WHERE id='$id";
             return ejecutarConsulta($Sql);
         }
+        
+        public function Consulta_v()
+        {
+            $Sql="SELECT * FROM clientes";
+            return ejecutarConsulta($Sql);
+        }
+
+        public function Consulta_pro()
+        {
+            $Sql="SELECT * FROM productos";
+            return ejecutarConsulta($Sql);
+        }
+
+        
    
-   
+
     }
 
 ?> 

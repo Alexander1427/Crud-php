@@ -40,7 +40,7 @@
 						</a>
                         <ul aria-expanded="false">
                         <li><a href="ventas-vista.php">Ver ventas</a></li>
-                            <li><a href="agregar-cliente.php"> Nueva venta </a></li>
+                            <li><a href="new_ventas.php"> Nueva venta </a></li>
                          
 
                         </ul>

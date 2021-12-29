@@ -4,13 +4,15 @@
  $insert = new insert();
 
 
-$cliente=$_POST['cliente'];
+$nombre=$_POST['nombre'];
 $producto=$_POST['producto'];
 $cantidad=$_POST['cantidad'];
 $precio=$_POST['precio'];
+$total=$_POST['total'];
 
 
- $insertventa = $insert->Insertventas($cliente,$producto,$precio,$cantidad);
+
+ $insertventa = $insert->Insertventas($nombre,$producto,$cantidad,$precio,$total);
 
  if ($insertventa) {
      header("location: ../view/producto.php");

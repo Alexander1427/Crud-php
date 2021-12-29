@@ -1,15 +1,13 @@
 <?php
+require_once('../models/consultas.php');
 
+$consultas = new consultas();
 
-require_once('../models/consulta_venta.php');
-
-$consulta = new consulta();
-
-$consulta_vent = $consulta->Consulta_vent();
+$consulta_v = $consultas -> consulta_v();
+$consulta_pro = $consultas -> Consulta_pro();
 
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +16,6 @@ $consulta_vent = $consulta->Consulta_vent();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Owlio - School Admission Admin Dashboard </title>
-    <?php  require_once 'complementos.php'; ?>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
 	<link rel="stylesheet" href="../assets/vendor/chartist/css/chartist.min.css">
@@ -111,52 +108,75 @@ $consulta_vent = $consulta->Consulta_vent();
         <div class="content-body">
 			<div class="container-fluid">
 
-            <br>
-    <div class="container">
-        
-        <table class="table">
-        <thead>
-            <tr>
-            <th scope="col">Clientes</th>
-            <th scope="col">Productos</th>
-            <th scope="col">Cantidad</th>
-            <th scope="col">Precio</th>
-            <th scope="col">total</th>
-           
-            </tr>
-        </thead>
-        <tbody>
-            <?php
+          
 
-            while ($datos=$consulta_vent->fetch()) {
-                
-                $cliente=$datos['cliente'];
-                $producto=$datos['producto'];
-                $can=$datos['can'];
-                $pre=$datos['pre'];
-                $total=$datos['total'];
-                
+
+            <form action="../server/venta.php" method="post">
+        <div class="container">
+    <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre del cliente</label>
+        <select name="nombre" id="nombre" class="form-control">
+            <option value="">Escoge</option>
+        <?php
+            while ($datos=$consulta_v->fetch()) {
+                $id=$datos['id'];
+                $nombre=$datos['nombre'];
+   
+            
 
             ?>
-            <tr>
-            <th scope="row"><?php echo $cliente?></th>
-            <td><?php echo $producto?></td>
-            <td><?php echo $can?></td>
-            <td><?php echo $pre?></td>
-            <td><?php echo $total?></td>
-            
-            
+            <option value="<?php echo $id?>"><?php echo $nombre ?></option>
 
-            </tr>
-            
             <?php
             }
             ?>
-        
-        </tbody>
-        </table>
-
+        </select>
+    
     </div>
+   
+    <div class="mb-3">
+        <label for="descripcion" class="form-label">Producto</label>
+        <select name="producto" id="producto" class="form-control">
+        <option value="">Escoge</option>
+        <?php
+            while ($datos=$consulta_pro->fetch()) {
+                $id=$datos['id'];
+                $nombre=$datos['nombre'];
+   
+            
+
+            ?>
+            <option value="<?php echo $id?>"><?php echo $nombre ?></option>
+
+            <?php
+            }
+            ?>
+
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="precio" class="form-label">cantidad</label>
+        <input type="number" class="form-control" name="cantidad" id="cantidad" aria-describedby="emailHelp" required>
+  
+    </div>
+    <div class="mb-3">
+        <label for="cantidad" class="form-label">precio</label>
+        <input type="number" step = "any" class="form-control" name="precio" id="precio" aria-describedby="emailHelp" required>
+  
+    </div>
+    
+    <div class="mb-3">
+        <label for="cantidad" class="form-label">Total</label>
+        <input type="number" step = "any"  class="form-control" name="total" id="total" aria-describedby="emailHelp" required>
+  
+    </div>
+
+    <button type="submit"  class="btn btn-primary">Agregar</button>
+    </div>
+
+    <div class="pen-footer"><a href="https://www.behance.net/gallery/30478397/Login-Form-UI-Library" target="_blank"><i class="material-icons">arrow_backward</i>View on Behance</a><a href="https://github.com/andyhqtran/UI-Library/tree/master/Login%20Form" target="_blank">View on Github<i class="material-icons">arrow_forward</i></a></div>
+    </form>
+
 			
 				
 			</div>	
